@@ -6,17 +6,15 @@
 }
 
 html, body {
-    height: 100vh;
-    width: 100vw;
-    overflow: hidden;
+    height: 100%;
+    width: 100%;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
-
     background-image: url('images/bgi.png');
-    background-size: cover; /* Масштабує фото на весь екран */
-    background-position: center center; /* Центрує фото */
-    background-repeat: no-repeat; /* Не повторює фото */
-    background-attachment: fixed; /* Фон зафіксований при скролі */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* ===== КОНТЕЙНЕР ГОЛОВНОЇ СТОРІНКИ ===== */
@@ -24,9 +22,7 @@ html, body {
     display: flex;
     height: 100vh;
     width: 100vw;
-    position: fixed;
-    top: 0;
-    left: 0;
+    position: relative;
 }
 
 /* ===== ЛІВА ЧАСТИНА - ІНФОРМАЦІЯ ===== */
@@ -76,7 +72,6 @@ html, body {
     width: 160px;
     height: 160px;
     border-radius: 50%;
-    margin-left: 20px;
     margin-right: 30px;
     object-fit: cover;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
@@ -94,9 +89,8 @@ html, body {
     color: white;
 }
 
-/* Застосовуємо наші стилі з високою специфічністю */
+/* Застосовуємо стилі для десктопу */
 body .full-page-container .info-side .welcome-box .profile-section img.profile-img {
-    /* Розміри */
     width: 200px !important;
     height: 200px !important;
 }
@@ -329,79 +323,251 @@ body .full-page-container .info-side .welcome-box .profile-section img.profile-i
 .square-card:nth-child(3) { animation: fadeIn 1s ease-out 0.6s both; }
 
 /* ===== АДАПТИВНІСТЬ ===== */
+
+/* Для планшетів */
 @media (max-width: 1200px) {
-    .full-page-container {
-        flex-direction: column;
-    }
-    
     .info-side {
-        flex: 0 0 40%;
-        padding: 25px;
+        padding: 30px;
     }
     
     .cards-side {
-        flex: 0 0 60%;
-        padding: 25px;
+        padding: 30px 20px;
     }
     
-    .info-side::before {
-        width: 100%;
-        height: 4px;
-        top: auto;
-        bottom: 0;
-    }
-    
-    .grid-container {
-        max-width: 500px;
+    .welcome-box {
+        max-width: 100%;
     }
 }
 
-@media (max-width: 768px) {
+/* Для мобільних пристроїв (головні зміни) */
+@media (max-width: 992px) {
+    .full-page-container {
+        flex-direction: column;
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .info-side {
+        flex: none;
+        width: 100%;
+        height: auto;
+        padding: 20px 15px;
+        order: 1;
+    }
+    
+    .cards-side {
+        flex: none;
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        max-height: none;
+        overflow-y: visible;
+        order: 2;
+    }
+    
+    /* Приховуємо вертикальну лінію */
+    .info-side::before {
+        display: none;
+    }
+    
+    /* Вітальний бокс */
+    .welcome-box {
+        margin-left: 0;
+        max-width: 100%;
+        padding: 25px 20px;
+    }
+    
+    /* Профіль на мобільних */
     .profile-section {
         flex-direction: column;
         text-align: center;
+        margin-bottom: 25px;
     }
     
     .profile-img {
+        width: 120px !important;
+        height: 120px !important;
         margin-right: 0;
         margin-bottom: 20px;
     }
     
-    .welcome-box {
-        padding: 25px;
+    .profile-info h2 {
+        font-size: 1.8rem;
     }
     
+    /* Текст */
+    .welcome-text {
+        font-size: 1rem;
+        line-height: 1.5;
+        text-align: center;
+        margin-bottom: 25px;
+    }
+    
+    /* Контакти */
     .contact-info {
         justify-content: center;
+        gap: 15px;
     }
     
-    .cards-side {
-        padding: 20px;
+    .contact-item {
+        padding: 10px 15px;
+        font-size: 0.9rem;
     }
     
+    /* Квадратики */
     .grid-container {
+        grid-template-columns: 1fr;
+        max-width: 100%;
         grid-gap: 15px;
     }
     
-    .square-card:nth-child(3) {
+    .square-card {
         aspect-ratio: 1 / 1;
-        grid-column: 1 / span 2;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+    
+    /* Останній квадрат (університет) */
+    .square-card:nth-child(3) {
+        grid-column: 1;
         grid-row: 3;
+        aspect-ratio: 1 / 1;
+        max-width: 300px;
+    }
+    
+    /* Заголовки квадратів */
+    .square-title {
+        font-size: 1.2rem;
     }
 }
 
-@media (max-height: 700px) {
+/* Для маленьких телефонів */
+@media (max-width: 576px) {
+    .info-side {
+        padding: 15px 10px;
+    }
+    
     .welcome-box {
-        padding: 25px;
+        padding: 20px 15px;
     }
     
     .profile-img {
-        width: 100px;
-        height: 100px;
+        width: 100px !important;
+        height: 100px !important;
+    }
+    
+    .profile-info h2 {
+        font-size: 1.5rem;
     }
     
     .welcome-text {
-        font-size: 1rem;
-        margin-bottom: 20px;
+        font-size: 0.9rem;
+    }
+    
+    .contact-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .contact-item {
+        width: 100%;
+        max-width: 250px;
+        justify-content: center;
+    }
+    
+    .grid-container {
+        grid-gap: 10px;
+    }
+    
+    .square-card {
+        max-width: 100%;
+    }
+    
+    .square-title {
+        font-size: 1.1rem;
+    }
+}
+
+/* Для вертикальної орієнтації з малою висотою */
+@media (max-height: 700px) and (max-width: 992px) {
+    .profile-img {
+        width: 80px !important;
+        height: 80px !important;
+    }
+    
+    .profile-info h2 {
+        font-size: 1.4rem;
+    }
+    
+    .welcome-text {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+    }
+    
+    .contact-item {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Для горизонтальної орієнтації на телефоні */
+@media (max-height: 500px) and (orientation: landscape) and (max-width: 992px) {
+    .full-page-container {
+        flex-direction: row;
+        height: 100vh;
+    }
+    
+    .info-side {
+        flex: 0 0 50%;
+        height: 100vh;
+        padding: 10px;
+        order: 1;
+    }
+    
+    .cards-side {
+        flex: 0 0 50%;
+        height: 100vh;
+        padding: 10px;
+        order: 2;
+    }
+    
+    .welcome-box {
+        padding: 15px;
+    }
+    
+    .profile-img {
+        width: 70px !important;
+        height: 70px !important;
+    }
+    
+    .profile-info h2 {
+        font-size: 1.2rem;
+    }
+    
+    .welcome-text {
+        font-size: 0.8rem;
+        line-height: 1.3;
+    }
+    
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+    }
+    
+    .square-card:nth-child(3) {
+        grid-column: 1 / span 2;
+        aspect-ratio: 2 / 1;
+    }
+}
+
+/* Для великих екранів */
+@media (min-width: 1400px) {
+    .welcome-box {
+        max-width: 900px;
+    }
+    
+    .grid-container {
+        max-width: 700px;
     }
 }
