@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>LifeSpark</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Власні стилі -->
+    <link rel="stylesheet" href="index-style.css">
+    <!-- Favicon -->
+    <link rel="icon" href="fire.ico" type="image/x-icon">
+</head>
+<body>
+    <!-- Весь контент на одному екрані -->
+    <div class="full-page-container">
+        <!-- Ліва частина - інформація про мене -->
+        <div class="info-side">
+            <div class="welcome-box">
+                <!-- Профіль -->
+                <div class="profile-section">
+                    <img src="images/profile.png" alt="Моє фото" class="profile-img">
+                    <div class="profile-info">
+                        <h2>Богдан Процак</h2>
+                    </div>
+                </div>
+                
+                <!-- Вітальний текст -->
+                <div class="welcome-text">
+                    <p>Привіт! Ласкаво прошу на мій персональний сайт-візитку</p>
+                    <p>Тут ви можете одразу побачити всі основні напрямки моєї активності та досягнення</p>
+                    <p>Кожен квадрат праворуч відкриває окремий світ мого досвіду та успіхів</p>
+                </div>
+                
+                <!-- Контактна інформація -->
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Львів, Україна</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Студент</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Права частина - квадратики активностей -->
+        <div class="cards-side">
+            <div class="grid-container">
+                <!-- Квадрат 1: Подорожі -->
+                <a href="travel.html" class="square-card square-link">
+                    <img src="images/travel.png" alt="Подорожі" class="square-image">
+                    <div class="view-btn">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                    <div class="square-content">
+                        <div class="square-title">
+                            <i class="fas fa-globe-europe"></i> Подорожі
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Квадрат 2: Спорт -->
+                <a href="sports.html" class="square-card square-link">
+                    <img src="images/emblem.jpg" alt="Спорт" class="square-image">
+                    <div class="view-btn">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                    <div class="square-content">
+                        <div class="square-title">
+                            <i class="fas fa-trophy"></i> Спорт
+                        </div>
+                    </div>
+                </a>
+                
+                <!-- Квадрат 3: Університет -->
+                <a href="university.html" class="square-card square-link">
+                    <img src="images/nulp.png" alt="Університет" class="square-image">
+                    <div class="view-btn">
+                        <i class="fas fa-external-link-alt"></i>
+                    </div>
+                    <div class="square-content">
+                        <div class="square-title">
+                            <i class="fas fa-graduation-cap"></i> Університет
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Блокуємо скрол на сторінці
+        document.addEventListener('wheel', function(e) {
+            if (!e.target.closest('.cards-side')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        document.addEventListener('touchmove', function(e) {
+            if (!e.target.closest('.cards-side')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        // Додаємо ефект кліку на квадратики
+        document.querySelectorAll('.square-card').forEach(card => {
+            card.addEventListener('click', function(e) {
+                if (!e.target.classList.contains('view-btn')) {
+                    this.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 150);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

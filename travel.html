@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LifeSpark | Travel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="travel-style.css">
+    <link rel="icon" href="fire.ico" type="image/x-icon">
+</head>
+<body>
+    <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> На головну
+    </a>
+    
+    <div class="page-container">
+        <div class="page-title">
+            <h1><i class="fas fa-globe-europe me-3"></i>Мої подорожі</h1>
+            <p class="lead">Фото та враження з моїх поїздок по Україні</p>
+        </div>
+        
+        <div class="gallery-grid">
+            <!-- Картка 1 -->
+            <div class="gallery-item">
+                <img src="images/travel/Ivano-Frank.png" alt="Карпати" class="gallery-img">
+                <div class="gallery-info">
+                    <h3>Івано-Франківськ</h3>
+                    <div class="gallery-details">
+                        <div class="gallery-date">
+                            <i class="far fa-calendar"></i>
+                            <span>Листопад 2024</span>
+                        </div>
+                        <div class="gallery-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Західна Україна</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Картка 2 -->
+            <div class="gallery-item">
+                <img src="images/travel/Dragobrat.png" alt="Львів" class="gallery-img">
+                <div class="gallery-info">
+                    <h3>г. Стіг</h3>
+                    <p></p>
+                    <div class="gallery-details">
+                        <div class="gallery-date">
+                            <i class="far fa-calendar"></i>
+                            <span>Серпень 2025</span>
+                        </div>
+                        <div class="gallery-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Драгобрат</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Картка 3 -->
+            <div class="gallery-item">
+                <img src="images/travel/Goverla.png" alt="Одеса" class="gallery-img">
+                <div class="gallery-info">
+                    <h3>г. Говерла</h3>
+                    <div class="gallery-details">
+                        <div class="gallery-date">
+                            <i class="far fa-calendar"></i>
+                            <span>Серпень 2025</span>
+                        </div>
+                        <div class="gallery-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Закарпатття</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Картка 4 -->
+            <div class="gallery-item">
+                <img src="images/travel/Mukachevo.png" alt="Київ" class="gallery-img">
+                <div class="gallery-info">
+                    <h3>Мукачево</h3>
+                    <div class="gallery-details">
+                        <div class="gallery-date">
+                            <i class="far fa-calendar"></i>
+                            <span>Серпень 2025</span>
+                        </div>
+                        <div class="gallery-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Закарпатття</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 2 ряд -->
+
+            <div class="gallery-item">
+                <img src="images/travel/Jandarm.png" alt="Дніпро" class="gallery-img">
+                <div class="gallery-info">
+                    <h3>г. Жандарм</h3>
+                    <div class="gallery-details">
+                        <div class="gallery-date">
+                            <i class="far fa-calendar"></i>
+                            <span>Серпень 2025</span>
+                        </div>
+                        <div class="gallery-location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Прикарпаття</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+           
+        </div>
+    </div>
+    
+    <script>
+        // Додамо плавну прокрутку при кліку на кнопку "На головну"
+        document.querySelector('.back-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.body.style.opacity = '0.8';
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 300);
+        });
+        
+        // Анімація при завантаженні
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Сторінка подорожей завантажена!');
+        });
+    </script>
+</body>
+</html>
