@@ -11,19 +11,11 @@ body {
     color: white;
     min-height: 100vh;
     padding-top: 80px;
-    position: relative;
-    /* Фіксуємо фон на весь екран */
     background-image: url('images/sports/bg-sports2.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed; /* Це фіксує фон */
-}
-
-/* Додаємо додатковий контейнер для фону на випадок, якщо фон не розтягується */
-html {
-    height: 100%;
-    min-height: 100%;
+    background-attachment: fixed;
 }
 
 /* Кнопка назад */
@@ -332,12 +324,14 @@ html {
     }
     
     .gallery-grid {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+        margin: 0 auto;
         padding: 0 15px 30px;
     }
     
     .stats-container {
-        grid-template-columns: repeat(2, 1fr); /* 2 колонки */
-        gap: 15px; /* трохи менший відступ */
+        grid-template-columns: 1fr;
         max-width: 400px;
         margin: 0 auto 40px;
     }
@@ -361,11 +355,6 @@ html {
 }
 
 @media (max-width: 480px) {
-
-    .gallery-grid {
-        gap: 10px;
-    }
-    
     .page-title h1 {
         font-size: 2.2rem;
     }
@@ -379,8 +368,6 @@ html {
     }
     
     .stat-card {
-        grid-template-columns: repeat(2, 1fr); /* 2 колонки */
-        gap: 15px; /* трохи менший відступ */
         padding: 20px;
     }
     
