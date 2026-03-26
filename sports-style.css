@@ -13,7 +13,7 @@ body {
     padding-top: 80px;
     position: relative;
     /* Фіксуємо фон на весь екран */
-    background-image: url('images/sports/bg-sports2.png');
+    background-image: url('images/sports/bg-sports.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
