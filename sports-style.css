@@ -284,7 +284,7 @@ html {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* ===== АДАПТИВНІСТЬ ===== */
+//* АДАПТИВНІСТЬ */
 @media (max-width: 1200px) {
     .gallery-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -331,17 +331,37 @@ html {
         font-size: 1.2rem;
     }
     
+    /* Статистика - 2 колонки на телефоні */
+    .stats-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        max-width: 100%;
+        margin: 0 auto 40px;
+        padding: 0 15px;
+    }
+    
+    .stat-card {
+        padding: 20px 15px;
+    }
+    
+    .stat-icon {
+        font-size: 2rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+    }
+    
     .gallery-grid {
         grid-template-columns: 1fr;
         max-width: 350px;
         margin: 0 auto;
         padding: 0 15px 30px;
-    }
-    
-    .stats-container {
-        grid-template-columns: 1fr;
-        max-width: 400px;
-        margin: 0 auto 40px;
     }
     
     .back-btn {
@@ -360,11 +380,41 @@ html {
     .rank-name {
         font-size: 1.2rem;
     }
+    
+    .rank-year {
+        font-size: 0.9rem;
+    }
 }
 
 @media (max-width: 480px) {
     .page-title h1 {
         font-size: 2.2rem;
+    }
+    
+    .stats-container {
+        gap: 12px;
+        padding: 0 10px;
+    }
+    
+    .stat-card {
+        padding: 15px 10px;
+    }
+    
+    .stat-icon {
+        font-size: 1.8rem;
+    }
+    
+    .stat-number {
+        font-size: 1.8rem;
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+    }
+    
+    .gallery-grid {
+        max-width: 100%;
+        padding: 0 10px 30px;
     }
     
     .gallery-info h3 {
@@ -375,12 +425,28 @@ html {
         padding: 15px;
     }
     
-    .stat-card {
-        padding: 20px;
+    .ranks-title {
+        font-size: 1.8rem;
     }
     
-    .stat-number {
-        font-size: 2.5rem;
+    .rank-name {
+        font-size: 1rem;
+    }
+    
+    .rank-year {
+        font-size: 0.8rem;
+    }
+    
+    .rank-item {
+        padding-left: 50px !important;
+        margin-bottom: 25px;
+    }
+    
+    .rank-circle {
+        width: 22px;
+        height: 22px;
+        left: 10px !important;
+        top: 15px;
     }
 }
 
