@@ -124,27 +124,14 @@
     </div>
     
     <script>
-    // Фіксація фону після повного завантаження
-    document.addEventListener('DOMContentLoaded', function() {
-        // Примусово оновлюємо фон
-        document.body.style.backgroundImage = 'url("images/sports/bg-sports2.png")';
-        document.body.style.backgroundSize = 'cover';
-        document.body.style.backgroundPosition = 'center center';
-        document.body.style.backgroundRepeat = 'no-repeat';
-        document.body.style.backgroundAttachment = 'fixed';
-        
-        // Якщо фон все ще не відображається, перевіряємо висоту
-        function fixBackground() {
-            const bodyHeight = document.body.scrollHeight;
-            const windowHeight = window.innerHeight;
-            
-            if (bodyHeight < windowHeight) {
-                document.body.style.minHeight = windowHeight + 'px';
-            }
-        }
-        
-        fixBackground();
-        window.addEventListener('resize', fixBackground);
+        // Плавний перехід на головну
+        document.querySelector('.back-btn').addEventListener('click', function(e) {
+            e.preventDefault();
+            document.body.style.opacity = '0.8';
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 300);
+        });
         
         // Анімація при скролі для статистики та рангів
         function checkScroll() {
@@ -161,9 +148,10 @@
             });
         }
         
-        checkScroll();
-        window.addEventListener('scroll', checkScroll);
-    });
-</script>
+        document.addEventListener('DOMContentLoaded', function() {
+            checkScroll();
+            window.addEventListener('scroll', checkScroll);
+        });
+    </script>
 </body>
 </html>
