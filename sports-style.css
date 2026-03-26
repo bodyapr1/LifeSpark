@@ -350,14 +350,15 @@ html {
         font-size: 1.3rem;
     }
     
-    /* РАНГИ - ПОЛОСКА ЗЛІВА, КРУЖЕЧКИ НА ЛІНІЇ */
+    /* РАНГИ - ПОЛОСКА ЗЛІВА */
     .ranks-timeline {
         max-width: 100%;
         padding: 20px 0;
+        position: relative;
     }
     
     .ranks-timeline::before {
-        left: 25px;
+        left: 25px; /* Положення вертикальної лінії */
         transform: none;
     }
     
@@ -365,18 +366,23 @@ html {
         width: 100%;
         left: 0 !important;
         text-align: left !important;
-        padding-left: 55px !important;
+        padding-left: 55px !important; /* Відступ для тексту */
         padding-right: 20px !important;
         margin-bottom: 30px;
+        position: relative;
     }
     
+    /* КРУЖЕЧКИ - ЦЕНТРУЄМО ПО ЛІНІЇ */
     .rank-item:nth-child(odd) .rank-circle,
     .rank-item:nth-child(even) .rank-circle {
-        left: 11px !important;
+        position: absolute;
+        left: 12px !important; /* Щоб центр кружечка був на лінії (25px - половина ширини кружечка) */
         right: auto !important;
         top: 15px;
-        width: 28px;
-        height: 28px;
+        width: 26px;
+        height: 26px;
+        margin: 0;
+        transform: none;
     }
     
     .rank-name {
@@ -433,9 +439,9 @@ html {
         padding: 12px;
     }
     
-    /* РАНГИ */
+    /* РАНГИ - ПОЛОСКА ЗЛІВА */
     .ranks-timeline::before {
-        left: 20px;
+        left: 20px; /* Вертикальна лінія */
     }
     
     .rank-item {
@@ -443,9 +449,10 @@ html {
         margin-bottom: 25px;
     }
     
+    /* КРУЖЕЧКИ - ЦЕНТРУЄМО ПО ЛІНІЇ */
     .rank-item:nth-child(odd) .rank-circle,
     .rank-item:nth-child(even) .rank-circle {
-        left: 9px !important;
+        left: 9px !important; /* 20px - (20px/2) = 10px, трохи підганяємо */
         width: 22px;
         height: 22px;
         top: 12px;
