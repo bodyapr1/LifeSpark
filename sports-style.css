@@ -12,13 +12,15 @@ body {
     min-height: 100vh;
     padding-top: 80px;
     position: relative;
+    /* Фіксуємо фон на весь екран */
     background-image: url('images/sports/bg-sports2.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
+    background-attachment: fixed; /* Це фіксує фон */
 }
 
+/* Додаємо додатковий контейнер для фону на випадок, якщо фон не розтягується */
 html {
     height: 100%;
     min-height: 100%;
@@ -81,7 +83,7 @@ html {
     margin: 0 auto;
 }
 
-/* Статистика тренера */
+/* Статистика тренера (без змін) */
 .stats-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -139,7 +141,7 @@ html {
     opacity: 0.9;
 }
 
-/* Рівні в айкідо */
+/* Рівні в айкідо (без змін) */
 .ranks-section {
     margin-bottom: 60px;
 }
@@ -221,7 +223,7 @@ html {
     color: #f1f0f0;
 }
 
-/* Галерея */
+/* ===== НОВА ГАЛЕРЕЯ - ЯК У TRAVEL ===== */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -229,6 +231,7 @@ html {
     padding: 0 20px 50px;
 }
 
+/* Картка галереї - фото на всю картку, формат 3:4 */
 .gallery-item {
     border-radius: 20px;
     overflow: hidden;
@@ -236,7 +239,7 @@ html {
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     border: 2px solid rgba(255, 255, 255, 0.1);
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 3 / 4; /* Такий самий формат, як у подорожей */
     opacity: 0;
     transform: translateY(30px);
     transition: all 0.6s ease;
@@ -245,9 +248,10 @@ html {
 .gallery-item:hover {
     transform: translateY(-15px) scale(1.02);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-    border-color: #dc3545;
+    border-color: #dc3545; /* Червоний колір для айкідо */
 }
 
+/* Зображення - на всю картку */
 .gallery-img {
     width: 100%;
     height: 100%;
@@ -260,6 +264,7 @@ html {
     transform: scale(1.1);
 }
 
+/* Інформація поверх фото - тільки назва червоним */
 .gallery-info {
     position: absolute;
     bottom: 0;
@@ -268,10 +273,11 @@ html {
     padding: 20px;
     background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
     text-align: center;
+    transition: all 0.3s ease;
 }
 
 .gallery-info h3 {
-    color: #dc3545;
+    color: #dc3545; /* Червоний колір для айкідо */
     margin: 0;
     font-size: 1.6rem;
     font-weight: 700;
@@ -292,6 +298,24 @@ html {
     .stats-container {
         grid-template-columns: repeat(2, 1fr);
     }
+    
+    .ranks-timeline::before {
+        left: 30px;
+    }
+    
+    .rank-item {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding-left: 60px !important;
+        padding-right: 20px !important;
+    }
+    
+    .rank-item:nth-child(odd) .rank-circle,
+    .rank-item:nth-child(even) .rank-circle {
+        left: 15px;
+        right: auto;
+    }
 }
 
 @media (max-width: 768px) {
@@ -307,38 +331,16 @@ html {
         font-size: 1.2rem;
     }
     
-    /* СТАТИСТИКА - 2 КОЛОНКИ */
-    .stats-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        max-width: 100%;
-        margin: 0 auto 40px;
-        padding: 0 15px;
-    }
-    
-    .stat-card {
-        padding: 20px 15px;
-    }
-    
-    .stat-icon {
-        font-size: 2rem;
-    }
-    
-    .stat-number {
-        font-size: 2rem;
-    }
-    
-    .stat-label {
-        font-size: 0.9rem;
-    }
-    
-    /* ГАЛЕРЕЯ */
     .gallery-grid {
-        grid-template-columns: 1fr;
-        max-width: 350px;
-        margin: 0 auto;
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+        gap: 15px; /* трохи менший відступ */
         padding: 0 15px 30px;
+    }
+    
+    .stats-container {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto 40px;
     }
     
     .back-btn {
@@ -350,124 +352,39 @@ html {
         font-size: 1.3rem;
     }
     
-    /* РАНГИ - ПОЛОСКА ЗЛІВА */
-    .ranks-timeline {
-        max-width: 100%;
-        padding: 20px 0;
-        position: relative;
-    }
-    
-    .ranks-timeline::before {
-        left: 25px; /* Положення вертикальної лінії */
-        transform: none;
-    }
-    
-    .rank-item {
-        width: 100%;
-        left: 0 !important;
-        text-align: left !important;
-        padding-left: 55px !important; /* Відступ для тексту */
-        padding-right: 20px !important;
-        margin-bottom: 30px;
-        position: relative;
-    }
-    
-    /* КРУЖЕЧКИ - ЦЕНТРУЄМО ПО ЛІНІЇ */
-    .rank-item:nth-child(odd) .rank-circle,
-    .rank-item:nth-child(even) .rank-circle {
-        position: absolute;
-        left: 12px !important; /* Щоб центр кружечка був на лінії (25px - половина ширини кружечка) */
-        right: auto !important;
-        top: 15px;
-        width: 26px;
-        height: 26px;
-        margin: 0;
-        transform: none;
+    .ranks-title {
+        font-size: 2.2rem;
     }
     
     .rank-name {
         font-size: 1.2rem;
     }
-    
-    .rank-year {
-        font-size: 0.9rem;
-    }
-    
-    .ranks-title {
-        font-size: 2rem;
-    }
 }
 
 @media (max-width: 480px) {
-    .page-title h1 {
-        font-size: 2rem;
-    }
-    
-    /* СТАТИСТИКА */
-    .stats-container {
-        gap: 12px;
-        padding: 0 10px;
-    }
-    
-    .stat-card {
-        padding: 15px 10px;
-    }
-    
-    .stat-icon {
-        font-size: 1.6rem;
-    }
-    
-    .stat-number {
-        font-size: 1.6rem;
-    }
-    
-    .stat-label {
-        font-size: 0.75rem;
-    }
-    
-    /* ГАЛЕРЕЯ */
     .gallery-grid {
-        max-width: 100%;
-        padding: 0 10px 30px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .page-title h1 {
+        font-size: 2.2rem;
     }
     
     .gallery-info h3 {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
     }
     
     .gallery-info {
-        padding: 12px;
+        padding: 15px;
     }
     
-    /* РАНГИ - ПОЛОСКА ЗЛІВА */
-    .ranks-timeline::before {
-        left: 20px; /* Вертикальна лінія */
+    .stat-card {
+        padding: 20px;
     }
     
-    .rank-item {
-        padding-left: 45px !important;
-        margin-bottom: 25px;
-    }
-    
-    /* КРУЖЕЧКИ - ЦЕНТРУЄМО ПО ЛІНІЇ */
-    .rank-item:nth-child(odd) .rank-circle,
-    .rank-item:nth-child(even) .rank-circle {
-        left: 9px !important; /* 20px - (20px/2) = 10px, трохи підганяємо */
-        width: 22px;
-        height: 22px;
-        top: 12px;
-    }
-    
-    .rank-name {
-        font-size: 1rem;
-    }
-    
-    .rank-year {
-        font-size: 0.8rem;
-    }
-    
-    .ranks-title {
-        font-size: 1.6rem;
+    .stat-number {
+        font-size: 2.5rem;
     }
 }
 
@@ -483,16 +400,16 @@ html {
     }
 }
 
-.gallery-item:nth-child(1) { animation: fadeIn 0.6s ease-out 0.1s forwards; }
-.gallery-item:nth-child(2) { animation: fadeIn 0.6s ease-out 0.2s forwards; }
-.gallery-item:nth-child(3) { animation: fadeIn 0.6s ease-out 0.3s forwards; }
-.gallery-item:nth-child(4) { animation: fadeIn 0.6s ease-out 0.4s forwards; }
-.stat-card:nth-child(1) { animation: fadeIn 0.6s ease-out 0.1s forwards; }
-.stat-card:nth-child(2) { animation: fadeIn 0.6s ease-out 0.2s forwards; }
-.stat-card:nth-child(3) { animation: fadeIn 0.6s ease-out 0.3s forwards; }
-.stat-card:nth-child(4) { animation: fadeIn 0.6s ease-out 0.4s forwards; }
-.rank-item:nth-child(1) { animation: fadeIn 0.6s ease-out 0.1s forwards; }
-.rank-item:nth-child(2) { animation: fadeIn 0.6s ease-out 0.2s forwards; }
-.rank-item:nth-child(3) { animation: fadeIn 0.6s ease-out 0.3s forwards; }
-.rank-item:nth-child(4) { animation: fadeIn 0.6s ease-out 0.4s forwards; }
-.rank-item:nth-child(5) { animation: fadeIn 0.6s ease-out 0.5s forwards; }
+.gallery-item:nth-child(1) { animation-delay: 0.1s; }
+.gallery-item:nth-child(2) { animation-delay: 0.2s; }
+.gallery-item:nth-child(3) { animation-delay: 0.3s; }
+.gallery-item:nth-child(4) { animation-delay: 0.4s; }
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+.stat-card:nth-child(4) { animation-delay: 0.4s; }
+.rank-item:nth-child(1) { animation-delay: 0.1s; }
+.rank-item:nth-child(2) { animation-delay: 0.2s; }
+.rank-item:nth-child(3) { animation-delay: 0.3s; }
+.rank-item:nth-child(4) { animation-delay: 0.4s; }
+.rank-item:nth-child(5) { animation-delay: 0.5s; }
