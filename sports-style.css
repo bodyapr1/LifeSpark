@@ -11,12 +11,11 @@ body {
     color: white;
     min-height: 100vh;
     padding-top: 80px;
-
-    background-image: url('images/sports/bg-sports.png');
-    background-size: cover; /* Масштабує фото на весь екран */
-    background-position: center center; /* Центрує фото */
-    background-repeat: no-repeat; /* Не повторює фото */
-    background-attachment: fixed; 
+    background-image: url('images/sports/bg-sports2.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 /* Кнопка назад */
@@ -25,7 +24,7 @@ body {
     top: 20px;
     left: 20px;
     z-index: 1000;
-    background: rgba(220, 53, 69, 0.9); /* Червоний для айкідо */
+    background: rgba(220, 53, 69, 0.9);
     color: white;
     border: none;
     padding: 12px 25px;
@@ -76,33 +75,7 @@ body {
     margin: 0 auto;
 }
 
-/* Блок з японською каліграфією */
-.calligraphy-section {
-    text-align: center;
-    margin: 40px 0 60px;
-    padding: 30px;
-    background: rgba(220, 53, 69, 0.1);
-    border-radius: 20px;
-    border: 2px solid rgba(220, 53, 69, 0.3);
-}
-
-.calligraphy-text {
-    font-family: 'MS Gothic', 'Yu Gothic', sans-serif;
-    font-size: 3rem;
-    color: #dc3545;
-    margin-bottom: 20px;
-    text-shadow: 0 0 10px rgba(220, 53, 69, 0.3);
-}
-
-.calligraphy-meaning {
-    font-size: 1.2rem;
-    font-style: italic;
-    opacity: 0.9;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-/* Статистика тренера */
+/* Статистика тренера (без змін) */
 .stats-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -121,6 +94,9 @@ body {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
 }
 
 .stat-card::before {
@@ -157,7 +133,7 @@ body {
     opacity: 0.9;
 }
 
-/* Рівні в айкідо */
+/* Рівні в айкідо (без змін) */
 .ranks-section {
     margin-bottom: 60px;
 }
@@ -192,6 +168,9 @@ body {
     margin-bottom: 40px;
     width: 50%;
     padding: 20px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
 }
 
 .rank-item:nth-child(odd) {
@@ -236,7 +215,7 @@ body {
     color: #f1f0f0;
 }
 
-/* Галерея айкідо */
+/* ===== НОВА ГАЛЕРЕЯ - ЯК У TRAVEL ===== */
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -244,136 +223,60 @@ body {
     padding: 0 20px 50px;
 }
 
-/* Картка айкідо */
-.aikido-card {
+/* Картка галереї - фото на всю картку, формат 3:4 */
+.gallery-item {
     border-radius: 20px;
     overflow: hidden;
     position: relative;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.1);
-    height: 450px;
-    display: flex;
-    flex-direction: column;
+    aspect-ratio: 3 / 4; /* Такий самий формат, як у подорожей */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
 }
 
-.aikido-card:hover {
+.gallery-item:hover {
     transform: translateY(-15px) scale(1.02);
     box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
-    border-color: #dc3545;
+    border-color: #dc3545; /* Червоний колір для айкідо */
 }
 
-/* Зображення */
-.aikido-img {
+/* Зображення - на всю картку */
+.gallery-img {
     width: 100%;
-    height: 285px;
+    height: 100%;
     object-fit: cover;
     display: block;
     transition: transform 0.6s ease;
 }
 
-.aikido-card:hover .aikido-img {
+.gallery-item:hover .gallery-img {
     transform: scale(1.1);
 }
 
-/* Інформація під картинкою */
-.aikido-info {
-    padding: 25px;
-    background: rgba(0, 0, 0, 0.7);
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    border-top: 3px solid #dc3545;
+/* Інформація поверх фото - тільки назва червоним */
+.gallery-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    text-align: center;
+    transition: all 0.3s ease;
 }
 
-.aikido-info h3 {
-    color: #ff6b6b;
-    margin-bottom: 10px;
+.gallery-info h3 {
+    color: #dc3545; /* Червоний колір для айкідо */
+    margin: 0;
     font-size: 1.6rem;
     font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.aikido-info p {
-    color: #e0e0e0;
-    line-height: 1.6;
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-}
-
-/* Техніки */
-.techniques {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-top: 10px;
-}
-
-.technique-tag {
-    background: rgba(220, 53, 69, 0.2);
-    color: #ff6b6b;
-    padding: 4px 10px;
-    border-radius: 15px;
-    font-size: 0.85rem;
-    border: 1px solid rgba(220, 53, 69, 0.3);
-}
-
-/* Прогрес бар */
-.progress-container {
-    margin-top: 20px;
-}
-
-.progress-label {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 5px;
-    font-size: 0.9rem;
-}
-
-.progress-bar {
-    height: 8px;
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.progress-fill {
-    height: 100%;
-    background: linear-gradient(90deg, #dc3545, #ff6b6b);
-    border-radius: 4px;
-    transition: width 1.5s ease;
-}
-
-/* Цитата */
-.quote-section {
-    text-align: center;
-    padding: 40px;
-    margin: 50px 20px;
-    background: rgba(220, 53, 69, 0.1);
-    border-radius: 20px;
-    border-left: 5px solid #dc3545;
-    border-right: 5px solid #dc3545;
-}
-
-.quote-text {
-    font-size: 1.4rem;
-    font-style: italic;
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-.quote-author {
-    font-size: 1.1rem;
-    color: #ff6b6b;
-    font-weight: 600;
-}
-
-/* Адаптивність */
+/* ===== АДАПТИВНІСТЬ ===== */
 @media (max-width: 1200px) {
     .gallery-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -408,6 +311,10 @@ body {
 }
 
 @media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+    
     .page-title h1 {
         font-size: 2.5rem;
     }
@@ -418,17 +325,9 @@ body {
     
     .gallery-grid {
         grid-template-columns: 1fr;
-        max-width: 500px;
+        max-width: 350px;
         margin: 0 auto;
         padding: 0 15px 30px;
-    }
-    
-    .aikido-card {
-        height: 420px;
-    }
-    
-    .aikido-img {
-        height: 220px;
     }
     
     .stats-container {
@@ -442,8 +341,16 @@ body {
         font-size: 1rem;
     }
     
-    .calligraphy-text {
-        font-size: 2.5rem;
+    .gallery-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .ranks-title {
+        font-size: 2.2rem;
+    }
+    
+    .rank-name {
+        font-size: 1.2rem;
     }
 }
 
@@ -452,20 +359,12 @@ body {
         font-size: 2.2rem;
     }
     
-    .aikido-card {
-        height: 400px;
+    .gallery-info h3 {
+        font-size: 1.2rem;
     }
     
-    .aikido-img {
-        height: 200px;
-    }
-    
-    .aikido-info {
-        padding: 20px;
-    }
-    
-    .aikido-info h3 {
-        font-size: 1.4rem;
+    .gallery-info {
+        padding: 15px;
     }
     
     .stat-card {
@@ -475,13 +374,9 @@ body {
     .stat-number {
         font-size: 2.5rem;
     }
-    
-    .quote-text {
-        font-size: 1.2rem;
-    }
 }
 
-/* Анімації */
+/* Анімації появи */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -493,31 +388,16 @@ body {
     }
 }
 
-@keyframes kanjiGlow {
-    0%, 100% { 
-        text-shadow: 0 0 10px rgba(220, 53, 69, 0.3);
-    }
-    50% { 
-        text-shadow: 0 0 20px rgba(220, 53, 69, 0.6), 0 0 30px rgba(220, 53, 69, 0.4);
-    }
-}
-
-.aikido-card {
-    animation: fadeIn 0.6s ease-out forwards;
-    opacity: 0;
-}
-
-.aikido-card:nth-child(1) { animation-delay: 0.1s; }
-.aikido-card:nth-child(2) { animation-delay: 0.2s; }
-.aikido-card:nth-child(3) { animation-delay: 0.3s; }
-.aikido-card:nth-child(4) { animation-delay: 0.4s; }
-.aikido-card:nth-child(5) { animation-delay: 0.5s; }
-
-.stat-card:nth-child(1) { animation: fadeIn 0.6s ease-out 0.1s both; }
-.stat-card:nth-child(2) { animation: fadeIn 0.6s ease-out 0.2s both; }
-.stat-card:nth-child(3) { animation: fadeIn 0.6s ease-out 0.3s both; }
-.stat-card:nth-child(4) { animation: fadeIn 0.6s ease-out 0.4s both; }
-
-.calligraphy-text {
-    animation: kanjiGlow 3s ease-in-out infinite;
-}
+.gallery-item:nth-child(1) { animation-delay: 0.1s; }
+.gallery-item:nth-child(2) { animation-delay: 0.2s; }
+.gallery-item:nth-child(3) { animation-delay: 0.3s; }
+.gallery-item:nth-child(4) { animation-delay: 0.4s; }
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+.stat-card:nth-child(4) { animation-delay: 0.4s; }
+.rank-item:nth-child(1) { animation-delay: 0.1s; }
+.rank-item:nth-child(2) { animation-delay: 0.2s; }
+.rank-item:nth-child(3) { animation-delay: 0.3s; }
+.rank-item:nth-child(4) { animation-delay: 0.4s; }
+.rank-item:nth-child(5) { animation-delay: 0.5s; }

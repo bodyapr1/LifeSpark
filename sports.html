@@ -20,7 +20,7 @@
             <p class="lead">Тренерська діяльність, досягнення та філософія мистецтва</p>
         </div>
         
-        <!-- Статистика тренера -->
+        <!-- Статистика тренера (залишаємо без змін) -->
         <div class="stats-container">
             <div class="stat-card">
                 <div class="stat-icon">
@@ -55,7 +55,7 @@
             </div>
         </div>
         
-        <!-- Історія рівнів -->
+        <!-- Історія рівнів (залишаємо без змін) -->
         <div class="ranks-section">
             <h2 class="ranks-title"><i class="fas fa-history me-2"></i>Мій шлях в айкідо</h2>
             <div class="ranks-timeline">
@@ -66,7 +66,7 @@
                 </div>
                 <div class="rank-item">
                     <div class="rank-circle"></div>
-                    <div class="rank-name">3-й кю (Коричневий поям)</div>
+                    <div class="rank-name">3-й кю (Коричневий пояс)</div>
                     <div class="rank-year">2023 - Початок викладання</div>
                 </div>
                 <div class="rank-item">
@@ -87,65 +87,44 @@
             </div>
         </div>
     
-        
-        <!-- Галерея айкідо -->
+        <!-- Галерея айкідо - СПРОЩЕНО -->
         <div class="gallery-grid">
-            <!-- Картка 1: Тренування -->
-            <div class="aikido-card">
-                <img src="images/sports/aikido1.png" alt="Тренування" class="aikido-img">
-                <div class="aikido-info">
-                    <h3><i class="fas fa-dumbbell"></i> Екзаменаційний процес</h3>
-                    
-                    <div class="techniques">
-                        <span class="technique-tag">Укемі</span>
-                        <span class="technique-tag">Те ходокі</span>
-                    </div>
-                    
+            <!-- Картка 1 -->
+            <div class="gallery-item">
+                <img src="images/sports/aikido1.png" alt="Екзаменаційний процес" class="gallery-img">
+                <div class="gallery-info">
+                    <h3>Екзаменаційний процес</h3>
                 </div>
             </div>
             
-            <!-- Картка 2: Викладання -->
-            <div class="aikido-card">
-                <img src="images/sports/aikido3.png" alt="Викладання" class="aikido-img">
-                <div class="aikido-info">
-                    <h3><i class="fas fa-chalkboard-teacher"></i> Екзаменаційний процес</h3>
-                    
-                    <div class="techniques">
-                        <span class="technique-tag">Партер</span>
-                        <span class="technique-tag">Кіхон</span>
-                    </div>
-                    
+            <!-- Картка 2 -->
+            <div class="gallery-item">
+                <img src="images/sports/aikido3.png" alt="Екзаменаційний процес" class="gallery-img">
+                <div class="gallery-info">
+                    <h3>Екзаменаційний процес</h3>
                 </div>
             </div>
             
-            <!-- Картка 3: Змагання -->
-            <div class="aikido-card">
-                <img src="images/sports/aikido2.png" alt="Змагання" class="aikido-img">
-                <div class="aikido-info">
-                    <h3><i class="fas fa-medal"></i> Участь у семінарах</h3>
-                    
+            <!-- Картка 3 -->
+            <div class="gallery-item">
+                <img src="images/sports/aikido2.png" alt="Участь у семінарах" class="gallery-img">
+                <div class="gallery-info">
+                    <h3>Участь у семінарах</h3>
                 </div>
             </div>
             
-            <!-- Картка 4: Техніки -->
-            <div class="aikido-card">
-                <img src="images/sports/aikido4.png" alt="Техніки" class="aikido-img">
-                <div class="aikido-info">
-                    <h3><i class="fas fa-fist-raised"></i> Спеціалізація технік</h3>
-                   
-                    <div class="techniques">
-                        <span class="technique-tag">Каторі</span>
-                        <span class="technique-tag">Кіхон Ваза</span>
-                    </div>
-
+            <!-- Картка 4 -->
+            <div class="gallery-item">
+                <img src="images/sports/aikido4.png" alt="Спеціалізація технік" class="gallery-img">
+                <div class="gallery-info">
+                    <h3>Спеціалізація технік</h3>
                 </div>
             </div>
-
         </div>
     </div>
     
     <script>
-        // Додамо плавну прокрутку при кліку на кнопку "На головну"
+        // Плавний перехід на головну
         document.querySelector('.back-btn').addEventListener('click', function(e) {
             e.preventDefault();
             document.body.style.opacity = '0.8';
@@ -154,23 +133,9 @@
             }, 300);
         });
         
-        // Анімація прогресу при прокрутці
-        const progressBars = document.querySelectorAll('.progress-fill');
-        
-        function animateProgressBars() {
-            progressBars.forEach(bar => {
-                const width = bar.style.width;
-                bar.style.width = '0%';
-                
-                setTimeout(() => {
-                    bar.style.width = width;
-                }, 500);
-            });
-        }
-        
-        // Анімація при скролі
+        // Анімація при скролі для статистики та рангів
         function checkScroll() {
-            const elements = document.querySelectorAll('.aikido-card, .stat-card, .rank-item');
+            const elements = document.querySelectorAll('.stat-card, .rank-item, .gallery-item');
             const windowHeight = window.innerHeight;
             
             elements.forEach(element => {
@@ -183,25 +148,10 @@
             });
         }
         
-        // Запускаємо анімації
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('Сторінка айкідо завантажена!');
-            setTimeout(animateProgressBars, 1000);
             checkScroll();
             window.addEventListener('scroll', checkScroll);
         });
-        
-        // Ефект для каліграфії
-        const kanji = document.querySelector('.calligraphy-text');
-        if (kanji) {
-            kanji.addEventListener('mouseover', function() {
-                this.style.transform = 'scale(1.1)';
-            });
-            
-            kanji.addEventListener('mouseout', function() {
-                this.style.transform = 'scale(1)';
-            });
-        }
     </script>
 </body>
 </html>
