@@ -332,13 +332,12 @@ html {
     }
     
     .gallery-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 колонки */
-        gap: 15px; /* трохи менший відступ */
         padding: 0 15px 30px;
     }
     
     .stats-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+        gap: 15px; /* трохи менший відступ */
         max-width: 400px;
         margin: 0 auto 40px;
     }
@@ -362,8 +361,8 @@ html {
 }
 
 @media (max-width: 480px) {
+
     .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
         gap: 10px;
     }
     
@@ -380,6 +379,8 @@ html {
     }
     
     .stat-card {
+        grid-template-columns: repeat(2, 1fr); /* 2 колонки */
+        gap: 15px; /* трохи менший відступ */
         padding: 20px;
     }
     
