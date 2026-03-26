@@ -295,17 +295,69 @@ html {
 }
 
 @media (max-width: 768px) {
-    /* ... інші стилі залишаються без змін ... */
+    body {
+        padding-top: 70px;
+    }
     
-    /* РАНГИ - ПОЛОСКА ЗЛІВА, КРУЖЕЧКИ ТОЧНО НА ЛІНІЇ */
+    .page-title h1 {
+        font-size: 2.5rem;
+    }
+    
+    .page-title .lead {
+        font-size: 1.2rem;
+    }
+    
+    /* СТАТИСТИКА - 2 КОЛОНКИ */
+    .stats-container {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+        max-width: 100%;
+        margin: 0 auto 40px;
+        padding: 0 15px;
+    }
+    
+    .stat-card {
+        padding: 20px 15px;
+    }
+    
+    .stat-icon {
+        font-size: 2rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .stat-label {
+        font-size: 0.9rem;
+    }
+    
+    /* ГАЛЕРЕЯ */
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        max-width: 350px;
+        margin: 0 auto;
+        padding: 0 15px 30px;
+    }
+    
+    .back-btn {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+    
+    .gallery-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    /* РАНГИ - ПОЛОСКА ЗЛІВА, КРУЖЕЧКИ НА ЛІНІЇ */
     .ranks-timeline {
         max-width: 100%;
         padding: 20px 0;
-        position: relative;
     }
     
     .ranks-timeline::before {
-        left: 25px; /* Положення вертикальної лінії */
+        left: 25px;
         transform: none;
     }
     
@@ -313,23 +365,18 @@ html {
         width: 100%;
         left: 0 !important;
         text-align: left !important;
-        padding-left: 55px !important; /* Відступ для тексту */
+        padding-left: 55px !important;
         padding-right: 20px !important;
         margin-bottom: 30px;
-        position: relative;
     }
     
-    /* КРУЖЕЧКИ - ЦЕНТРУЄМО ПО ЛІНІЇ */
     .rank-item:nth-child(odd) .rank-circle,
     .rank-item:nth-child(even) .rank-circle {
-        position: absolute;
-        left: 12px !important; /* Щоб центр кружечка був на лінії (25px - половина ширини кружечка) */
+        left: 11px !important;
         right: auto !important;
         top: 15px;
-        width: 26px;
-        height: 26px;
-        margin: 0;
-        transform: none;
+        width: 28px;
+        height: 28px;
     }
     
     .rank-name {
@@ -346,11 +393,49 @@ html {
 }
 
 @media (max-width: 480px) {
-    /* ... інші стилі залишаються без змін ... */
+    .page-title h1 {
+        font-size: 2rem;
+    }
     
-    /* РАНГИ - ПОЛОСКА ЗЛІВА, КРУЖЕЧКИ ТОЧНО НА ЛІНІЇ */
+    /* СТАТИСТИКА */
+    .stats-container {
+        gap: 12px;
+        padding: 0 10px;
+    }
+    
+    .stat-card {
+        padding: 15px 10px;
+    }
+    
+    .stat-icon {
+        font-size: 1.6rem;
+    }
+    
+    .stat-number {
+        font-size: 1.6rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+    
+    /* ГАЛЕРЕЯ */
+    .gallery-grid {
+        max-width: 100%;
+        padding: 0 10px 30px;
+    }
+    
+    .gallery-info h3 {
+        font-size: 1.1rem;
+    }
+    
+    .gallery-info {
+        padding: 12px;
+    }
+    
+    /* РАНГИ */
     .ranks-timeline::before {
-        left: 20px; /* Вертикальна лінія */
+        left: 20px;
     }
     
     .rank-item {
@@ -358,10 +443,9 @@ html {
         margin-bottom: 25px;
     }
     
-    /* КРУЖЕЧКИ - ЦЕНТРУЄМО ПО ЛІНІЇ */
     .rank-item:nth-child(odd) .rank-circle,
     .rank-item:nth-child(even) .rank-circle {
-        left: 9px !important; /* 20px - (20px/2) = 10px, трохи підганяємо */
+        left: 9px !important;
         width: 22px;
         height: 22px;
         top: 12px;
