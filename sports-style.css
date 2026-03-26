@@ -318,6 +318,7 @@ html {
     }
 }
 
+/* ===== МОБІЛЬНА ВЕРСІЯ (до 768px) ===== */
 @media (max-width: 768px) {
     body {
         padding-top: 70px;
@@ -331,18 +332,18 @@ html {
         font-size: 1.2rem;
     }
     
-    /* Статистика - 2 колонки на телефоні */
+    /* СТАТИСТИКА - 2 КОЛОНКИ В РЯД */
     .stats-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
         gap: 15px;
-        max-width: 100%;
         margin: 0 auto 40px;
         padding: 0 15px;
+        max-width: 100%;
     }
     
     .stat-card {
-        padding: 20px 15px;
+        padding: 20px 10px;
     }
     
     .stat-icon {
@@ -357,6 +358,7 @@ html {
         font-size: 0.9rem;
     }
     
+    /* ГАЛЕРЕЯ */
     .gallery-grid {
         grid-template-columns: 1fr;
         max-width: 350px;
@@ -364,6 +366,7 @@ html {
         padding: 0 15px 30px;
     }
     
+    /* КНОПКА НАЗАД */
     .back-btn {
         padding: 10px 20px;
         font-size: 1rem;
@@ -373,48 +376,55 @@ html {
         font-size: 1.3rem;
     }
     
+    /* РАНГИ */
     .ranks-title {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
     
     .rank-name {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     
     .rank-year {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+    }
+    
+    .rank-item {
+        padding-left: 55px !important;
+    }
+    
+    .rank-circle {
+        left: 15px !important;
+        width: 25px;
+        height: 25px;
     }
 }
 
+/* ===== ДУЖЕ МАЛЕНЬКІ ТЕЛЕФОНИ (до 480px) ===== */
 @media (max-width: 480px) {
     .page-title h1 {
-        font-size: 2.2rem;
+        font-size: 2rem;
     }
     
-    /* Статистика - 2 колонки на телефоні */
     .stats-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 15px;
-        max-width: 100%;
-        margin: 0 auto 40px;
-        padding: 0 15px;
+        gap: 10px;
+        padding: 0 10px;
     }
     
     .stat-card {
-        padding: 15px 10px;
+        padding: 15px 8px;
     }
     
     .stat-icon {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
     
     .stat-number {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
     
     .stat-label {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
     
     .gallery-grid {
@@ -423,35 +433,35 @@ html {
     }
     
     .gallery-info h3 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
     }
     
     .gallery-info {
-        padding: 15px;
+        padding: 12px;
     }
     
     .ranks-title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
     
     .rank-name {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
     
     .rank-year {
-        font-size: 0.8rem;
+        font-size: 0.75rem;
     }
     
     .rank-item {
-        padding-left: 50px !important;
-        margin-bottom: 25px;
+        padding-left: 45px !important;
+        margin-bottom: 20px;
     }
     
     .rank-circle {
-        width: 22px;
-        height: 22px;
-        left: 10px !important;
-        top: 15px;
+        width: 20px;
+        height: 20px;
+        left: 12px !important;
+        top: 12px;
     }
 }
 
